@@ -1,0 +1,31 @@
+{
+  "name": "nakama.network",
+  "packageManager": "yarn@3.6.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "yarn workspaces foreach run build",
+    "build-storybook": "yarn workspaces foreach run build-storybook",
+    "deploy": "yarn workspaces foreach run deploy",
+    "format": "prettier -w .",
+    "lint": "eslint .",
+    "test": "yarn workspaces foreach run test",
+    "type-check": "yarn workspaces foreach run tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.1",
+    "@babel/eslint-plugin": "^7.19.1",
+    "@babel/preset-env": "^7.22.4",
+    "@babel/preset-typescript": "^7.21.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.3"
+  }
+}
