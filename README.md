@@ -1,2 +1,2 @@
-# NakamaNode
-Nakama Network Redesign
+# Nakama Network
+Nakama Network Node rebuild
