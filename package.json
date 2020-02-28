@@ -1,0 +1,39 @@
+{
+  "name": "nakama.network",
+  "version": "1.0.0",
+  "description": "TypeScript rewrite of Nakama Network!",
+  "main": "index.ts",
+  "repository": "git@github.com:RoboCafaz/nakama.network.git",
+  "author": "Bobby Cafazzo <robocafaz@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "codecov": "^3.7.2",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.0.5",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "lint": "eslint packages/*/src/**/*.ts",
+    "format": "prettier --write '{packages/*/src,scripts}/**/*.{js,ts,tsx,json}'",
+    "test": "yarn workspaces run test",
+    "test-coverage": "yarn workspaces run test-coverage",
+    "type-check": "yarn workspaces run tsc --noEmit",
+    "update-codebuild": "node ./scripts/update-codebuild.js",
+    "upload-coverage": "codecov"
+  },
+  "pre-commit": [
+    "lint",
+    "type-check"
+  ],
+  "workspaces": [
+    "packages/*"
+  ]
+}

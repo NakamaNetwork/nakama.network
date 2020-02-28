@@ -1,0 +1,29 @@
+{
+  "name": "nakama-network",
+  "source": {
+    "type": "GITHUB",
+    "location": "https://github.com/RoboCafaz/nakama.network",
+    "auth": {
+      "type": "OAUTH"
+    }
+  },
+  "artifacts": {
+    "type": "NO_ARTIFACTS"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/standard:3.0",
+    "computeType": "BUILD_GENERAL1_SMALL",
+    "privilegedMode": false,
+    "environmentVariables": [
+      {
+        "name": "CODECOV_TOKEN",
+        "value": "<SECRET>",
+        "type": "PLAINTEXT"
+      }
+    ]
+  },
+  "serviceRole": "arn:aws:iam::059195686408:role/service-role/codebuild-nakama-node-service-role",
+  "timeoutInMinutes": 10,
+  "badgeEnabled": true
+}
