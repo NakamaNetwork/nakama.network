@@ -1,0 +1,21 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - apt-get update
+      - apt-get install apt-transport-https
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get update
+      - apt-get install yarn
+      - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.10/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - cd "$(mktemp -d)" && . "$NVM_DIR/nvm.sh" && cd "$CODEBUILD_SRC_DIR" && nvm install && nvm use
+  pre_build:
+    commands:
+      - yarn install
+  build:
+    commands:
+      - yarn lint
+      - yarn type-check
+      - yarn build

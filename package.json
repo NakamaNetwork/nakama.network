@@ -27,7 +27,8 @@
     "build": "gulp build",
     "lint": "eslint src/**/*",
     "format": "prettier --write 'src/**/*.{ts,json}'",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "update-codebuild": "node ./scripts/update-codebuild.js"
   },
   "pre-commit": [
     "lint",
