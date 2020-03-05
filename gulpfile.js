@@ -3,7 +3,7 @@ const babel = require('gulp-babel');
 
 const build = () =>
   gulp
-    .src('src/**/*')
+    .src(['src/**','!**/__*__/**'])
     .pipe(babel())
     .pipe(gulp.dest('dist'));
 
