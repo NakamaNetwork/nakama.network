@@ -34,7 +34,8 @@
     "test": "jest",
     "test-coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
-    "update-codebuild": "node ./scripts/update-codebuild.js"
+    "update-codebuild": "node ./scripts/update-codebuild.js",
+    "upload-coverage": "codecov"
   },
   "pre-commit": [
     "lint",

@@ -20,3 +20,6 @@ phases:
       - yarn type-check
       - yarn test-coverage
       - yarn build
+  post_build:
+    commands:
+      - yarn upload-coverage
