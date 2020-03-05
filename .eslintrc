@@ -15,8 +15,9 @@
   },
   "plugins": ["@typescript-eslint", "prettier", "import"],
   "rules": {
-    "prettier/prettier": "error",
-    "import/no-duplicates": "error",
-    "import/no-default-export": "error"
+    "prettier/prettier": 1,
+    "import/no-duplicates": 2,
+    "import/no-default-export": 2,
+    "import/prefer-default-export": 0
   }
 }
