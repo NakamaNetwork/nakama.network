@@ -13,6 +13,7 @@ phases:
       - cd "$(mktemp -d)" && . "$NVM_DIR/nvm.sh" && cd "$CODEBUILD_SRC_DIR" && nvm install && nvm use
   pre_build:
     commands:
+      - printenv
       - yarn install
   build:
     commands:
