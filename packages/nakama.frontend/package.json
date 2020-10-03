@@ -2,11 +2,11 @@
   "name": "nakama.frontend",
   "version": "1.0.0",
   "description": "React rewrite of Nakama Network!",
-  "main": "index.ts",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "echo 'do something'",
+    "build": "webpack -p",
+    "start": "webpack-dev-server --open",
     "test": "jest --config=../../config/jest.config.js",
     "test-coverage": "yarn test --coverage"
   },
@@ -21,8 +21,13 @@
     "@types/react": "^16.9.50",
     "@types/react-dom": "^16.9.8",
     "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.5.0",
     "jest": "^26.4.2",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "react": "^16.13.1",

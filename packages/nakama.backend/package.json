@@ -2,7 +2,7 @@
   "name": "nakama.backend",
   "version": "1.0.0",
   "description": "TypeScript rewrite of Nakama Network!",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "license": "MIT",
   "private": true,
   "scripts": {
