@@ -11174,6 +11174,11 @@ type-is@~1.6.17, type-is@~1.6.18:
     media-typer "0.3.0"
     mime-types "~2.1.24"
 
+type-shift@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/type-shift/-/type-shift-0.0.2.tgz#4338fef03b7e6b6d743e6dd8792355bd300af068"
+  integrity sha512-yMtqgJylNQb3PHN1GiIb6/7pnLNHKbvIwARC5nltIXNb741nzKhEEWTR9FiyTOSQgCZYKn/WqghYnkKv3yPvOA==
+
 type@^1.0.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/type/-/type-1.2.0.tgz#848dd7698dafa3e54a6c479e759c4bc3f18847a0"

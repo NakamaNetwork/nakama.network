@@ -15,6 +15,8 @@
   },
   "plugins": ["@typescript-eslint", "import", "prettier"],
   "rules": {
+    // Override recommended rule -- allow for return type inferrence
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     // Override recommended rule -- empty interfaces are sometimes necessary
     "@typescript-eslint/no-empty-interface": "off",
     // Override recommended rule -- it's preferred to be explicit about types
