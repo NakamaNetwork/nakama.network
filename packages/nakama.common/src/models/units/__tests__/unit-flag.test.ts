@@ -1,6 +1,6 @@
-import { enumFlagTestSuite } from "src/modules/__tests__/enum-flag-converter.test";
-import { UnitFlag, unitFlagConverter } from "..";
+import { enumFlagTestSuite } from '../../../modules/__tests__/enum-flag-converter.test';
+import { UnitFlag, unitFlagConverter } from '..';
 
-describe('unit-flag-converter',()=>{
-    enumFlagTestSuite(UnitFlag, unitFlagConverter);
-  })
+describe('unit-flag-converter', () => {
+  enumFlagTestSuite(UnitFlag, unitFlagConverter);
+});

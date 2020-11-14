@@ -10,7 +10,7 @@ export const enumFlagTestSuite = <T>(
     if (i === 0) {
       acc.push(cur);
     } else {
-      acc.push(acc[i] + cur);
+      acc.push(acc[i-1] + cur);
     }
     return acc;
   }, [] as number[]);
