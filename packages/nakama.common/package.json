@@ -18,6 +18,8 @@
     "type-shift": "^0.0.2"
   },
   "scripts": {
+    "build": "echo 'Nothing to build.'",
+    "deploy": "echo 'Nothing to deploy.'",
     "test": "jest --config=../../config/jest.config.js",
     "test-coverage": "yarn test --coverage"
   }
