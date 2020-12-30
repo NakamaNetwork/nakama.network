@@ -1,17 +1,21 @@
-import { enumFlagConverter } from '../../modules/enum-flag-converter';
+import * as t from 'type-shift';
 
-export enum UnitFlag {
-  Unknown = 0,
-  Global = 1 << 0,
-  RareRecruit = 1 << 1,
-  RareRecruitExclusive = 1 << 2,
-  RareRecruitOnly = 1 << 3,
-  Promotional = 1 << 4,
-  Shop = 1 << 5,
-  LimitedRareRecruit = 1 << 6,
-  KizunaRareRecruit = 1 << 7,
-  PirateFestivalRareRecruit = 1 << 8,
-  TreasureMapRareRecruit = 1 << 9
-}
+export const unitFlags = [
+  'Global' as const,
+  'Rare Recruit' as const,
+  'Rare Recruit Exclusive' as const,
+  'Limited Rare Recruit' as const,
+  'Treasure Map Limited Rare Recruit' as const,
+  'Kizuna Clash Limited Rare Recruit' as const,
+  'Pirate Festival Limited Rare Recruit' as const,
+  'Ray Shop Unit' as const,
+  'Limited Distribution Unit' as const
+];
 
-export const unitFlagConverter = enumFlagConverter<UnitFlag>(UnitFlag, 'UnitFlag');
+/**
+ * Unit flags dictating how they are obtained.
+ *   (e.g. Rare Recruit Exclusive)
+ */
+export type UnitFlag = typeof unitFlags[number];
+
+export const unitFlagConverter = t.oneOf<UnitFlag>(unitFlags);
