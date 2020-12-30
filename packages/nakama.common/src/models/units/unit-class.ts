@@ -1,4 +1,4 @@
-import { enumFlagConverter } from 'src/modules/enum-flag-converter';
+import { enumFlagConverter } from '../../modules/enum-flag-converter';
 
 export enum UnitClass {
   Unknown = 0,

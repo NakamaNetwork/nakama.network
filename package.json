@@ -21,8 +21,9 @@
   },
   "scripts": {
     "build": "yarn workspaces run build",
-    "lint": "eslint packages/*/src/**/*.ts",
+    "deploy": "yarn workspaces run deploy",
     "format": "prettier --write '{packages/*/src,scripts}/**/*.{js,ts,tsx,json}'",
+    "lint": "eslint packages/*/src/**/*.ts",
     "test": "yarn workspaces run test",
     "test-coverage": "yarn workspaces run test-coverage",
     "type-check": "yarn workspaces run tsc --noEmit",
