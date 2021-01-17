@@ -11,6 +11,7 @@
     "start": "webpack-dev-server --open",
     "test": "jest --config=../../config/jest.config.js",
     "test-coverage": "yarn test --coverage",
+    "type-check": "yarn tsc --noEmit",
     "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {

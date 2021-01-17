@@ -2,7 +2,7 @@
   "name": "nakama-network",
   "source": {
     "type": "GITHUB",
-    "location": "https://github.com/RoboCafaz/nakama.network",
+    "location": "https://github.com/NakamaNetwork/nakama.network",
     "auth": {
       "type": "OAUTH"
     }

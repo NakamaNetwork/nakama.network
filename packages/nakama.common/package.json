@@ -2,7 +2,8 @@
   "name": "nakama.common",
   "version": "1.0.0",
   "description": "Core functionality for all Nakama tools",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "private": true,
   "devDependencies": {
@@ -21,6 +22,7 @@
     "build": "echo 'Nothing to build.'",
     "deploy": "echo 'Nothing to deploy.'",
     "test": "jest --config=../../config/jest.config.js",
-    "test-coverage": "yarn test --coverage"
+    "test-coverage": "yarn test --coverage",
+    "type-check": "yarn tsc --noEmit"
   }
 }
