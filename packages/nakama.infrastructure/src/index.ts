@@ -13,7 +13,7 @@ const getVersion = () => {
   }
 };
 
-const stackName = `nakama-infrastructure-stack-${getVersion()}`;
+const stackName = `nakama-stack-${getVersion()}`;
 console.log(`Deploying ${stackName}`);
 
 const app = new cdk.App();
