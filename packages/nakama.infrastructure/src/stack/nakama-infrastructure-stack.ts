@@ -7,6 +7,10 @@ import { buildShipTable } from './dynamo-tables/data/ship-table';
 import { buildStageTable } from './dynamo-tables/data/stage-table';
 import { buildUnitTable } from './dynamo-tables/data/unit-table';
 import { buildTeamTable } from './dynamo-tables/teams/team-table';
+import { buildRunScrapersEvent } from './events/run-scrapers-event';
+import { buildAssetBucket } from './s3-buckets/asset-bucket';
+import { buildImageScraperLambda } from './scraper-lambdas/image-scraper-lambda';
+import { buildUnitScraperLambda } from './scraper-lambdas/unit-scraper-lambda';
 
 export class NakamaInfrastructureStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -21,8 +25,19 @@ export class NakamaInfrastructureStack extends cdk.Stack {
     buildEventTable(this);
     buildShipTable(this);
     buildStageTable(this);
-    buildUnitTable(this);
+    const unitTable = buildUnitTable(this);
     // -- -- Team Tables
     buildTeamTable(this);
+
+    // -- S3 Buckets
+    const assetBucket = buildAssetBucket(this);
+
+    // -- Lambdas
+    // -- -- Scrapers
+    const unitScraper = buildUnitScraperLambda(this, unitTable);
+    const imageScraper = buildImageScraperLambda(this, assetBucket);
+
+    // -- Events
+    buildRunScrapersEvent(this, unitScraper, imageScraper);
   }
 }

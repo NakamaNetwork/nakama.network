@@ -2,32 +2,37 @@
   "name": "nakama.infrastructure",
   "version": "1.0.0",
   "description": "AWS CloudFormation configuration for Nakama resources",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "private": true,
   "scripts": {
     "build": "echo 'Nothing to build.'",
-    "deploy": "cdk deploy",
-    "test": "jest --config=../../config/jest.config.js",
-    "test-coverage": "yarn test --coverage"
+    "deploy": "cdk deploy --require-approval never",
+    "type-check": "yarn tsc --noEmit"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.80.0",
+    "@aws-cdk/assert": "1.85.0",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
-    "aws-cdk": "1.80.0",
+    "aws-cdk": "1.85.0",
     "babel-jest": "^26.3.0",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.2.0",
     "ts-node": "^8.1.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "@aws-cdk/aws-dynamodb": "1.80.0",
-    "@aws-cdk/core": "1.80.0",
+    "@aws-cdk/aws-dynamodb": "1.85.0",
+    "@aws-cdk/aws-events": "1.85.0",
+    "@aws-cdk/aws-events-targets": "1.85.0",
+    "@aws-cdk/aws-iam": "1.85.0",
+    "@aws-cdk/aws-lambda": "1.85.0",
+    "@aws-cdk/aws-s3": "1.85.0",
+    "@aws-cdk/core": "1.85.0",
+    "nakama.backend": "1.0.0",
+    "nakama.common": "1.0.0",
+    "nakama.scrapers": "1.0.0",
     "source-map-support": "^0.5.16"
   }
 }

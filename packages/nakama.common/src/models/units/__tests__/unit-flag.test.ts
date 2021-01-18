@@ -1,6 +1,13 @@
-import { enumFlagTestSuite } from '../../../modules/__tests__/enum-flag-converter.test';
-import { UnitFlag, unitFlagConverter } from '..';
+import { unitFlagConverter, unitFlags } from '../unit-flag';
 
-describe('unit-flag-converter', () => {
-  enumFlagTestSuite(UnitFlag, unitFlagConverter);
+describe('unit-flag', () => {
+  describe('unitFlagConverter', () => {
+    it.each(unitFlags)('Can convert "%s"', (unitFlag) => {
+      expect(unitFlagConverter(unitFlag)).toBe(unitFlag);
+    });
+
+    it.each([undefined, '', 'bunk'])('Throws error on %s', (unitFlag) => {
+      expect(() => unitFlagConverter(unitFlag)).toThrowError();
+    });
+  });
 });
