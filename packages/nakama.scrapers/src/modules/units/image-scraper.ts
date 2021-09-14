@@ -2,31 +2,15 @@ import { importFromRemote } from '../utils/import-helper';
 import { sniffUnits } from './unit-scraper';
 import fs from 'fs';
 import fetch from 'node-fetch';
-import os from 'os';
 import path from 'path';
-import { FileDao, S3Dao } from 'nakama.common/src/dao/file-dao';
 import { bin } from 'nakama.common/src/utils/array-helpers';
 import { execFileSync } from 'child_process';
-
-const BUCKET_PATH = 'assets/images/thumbs';
-const MANIFEST_BUCKET_PATH = path.join(BUCKET_PATH, 'manifest.json');
 
 interface OptcDbUtils {
   Utils: {
     getThumbnailUrl: (id: number) => string;
   };
 }
-
-const getOldManifest = async (bucket: FileDao) => {
-  console.log(`Fetching old manifest from "${MANIFEST_BUCKET_PATH}"`);
-  const result = await bucket.get(MANIFEST_BUCKET_PATH);
-  if (result) {
-    console.log('Manifest found.');
-    return JSON.parse(result.toString('ascii')) as Record<string, string>;
-  }
-  console.log('Manifest not found. Returning empty.');
-  return {} as Record<string, string>;
-};
 
 const getNewManifest = async () => {
   console.log('Grabbing code.');
@@ -44,25 +28,6 @@ const getNewManifest = async () => {
     return acc;
   }, {} as Record<string, string>);
   return imageMappings;
-};
-
-const getNewFiles = (newManifest: Record<string, string>, oldManifest: Record<string, string>) => {
-  const newFiles: Record<string, string> = {};
-  const staleFiles: Record<string, string> = {};
-  Object.entries(newManifest).forEach(([key, value]) => {
-    const existing = oldManifest[key];
-    if (existing !== value) {
-      newFiles[key] = value;
-    } else {
-      staleFiles[key] = value;
-    }
-  });
-  console.log(
-    `Found ${Object.keys(newFiles).length} new files and ${
-      Object.keys(staleFiles).length
-    } stale files.`
-  );
-  return { newFiles, staleFiles };
 };
 
 const downloadThumb = async (id: string, url: string, target: string) => {
@@ -91,7 +56,7 @@ const downloadThumbs = async (imageMappings: Record<string, string>, target: str
   console.log(`Downloading ${entries.length} images.`);
   const successes: Record<string, string> = {};
   const failures: Record<string, string> = {};
-  for (const mappingSet of bin(entries)) {
+  for (const mappingSet of bin(entries, 50)) {
     const promises = mappingSet.map(([id, url]) =>
       downloadThumb(id, url, target)
         .then(() => {
@@ -127,7 +92,7 @@ const compressImages = async (folder: string) => {
   const folderContent = fs.readdirSync(folder, { withFileTypes: true });
 
   // Iterate over the contents
-  for (const fileSet of bin(folderContent)) {
+  for (const fileSet of bin(folderContent, 50)) {
     const promises = fileSet.map((file) =>
       file.name.endsWith('.png') ? compressImage(folder, file.name) : Promise.resolve()
     );
@@ -135,40 +100,13 @@ const compressImages = async (folder: string) => {
   }
 };
 
-const updateBucket = async (manifest: Record<string, string>, folder: string, bucket: FileDao) => {
-  fs.writeFileSync(path.join(folder, 'manifest.json'), JSON.stringify(manifest));
-  // Read the content of the folder
-  const folderContent = fs.readdirSync(folder, { withFileTypes: true });
-
-  // Iterate over the contents
-  for (const fileSet of bin(folderContent)) {
-    const promises = fileSet.map((file) => {
-      const filePath = path.join(folder, file.name);
-      const targetPath = path.join(BUCKET_PATH, file.name);
-      console.log(`Attempting to upload "${filePath}" to "${targetPath}`);
-      return bucket.put(targetPath, fs.readFileSync(filePath));
-    });
-    await Promise.allSettled(promises);
-  }
-};
-
-export const sniffImages = async () => {
-  if (!process.env.ASSET_BUCKET) {
-    throw new Error('Could not find asset dao!');
-  }
-  const bucket = new S3Dao(process.env.ASSET_BUCKET!);
-  const oldManifest = await getOldManifest(bucket);
-  const newManifest = await getNewManifest();
-
-  const { newFiles } = getNewFiles(newManifest, oldManifest);
-  if (Object.keys(newFiles).length > 0) {
-    const tmpDir = path.join(os.tmpdir(), `nakama-images/thumbs`);
-    if (fs.existsSync(tmpDir)) {
-      fs.rmdirSync(tmpDir, { recursive: true });
+export const sniffImages = async (outDir: string) => {
+  const manifest = await getNewManifest();
+  if (Object.keys(manifest).length > 0) {
+    if (!fs.existsSync(outDir)) {
+      fs.mkdirSync(outDir, { recursive: true });
     }
-    fs.mkdirSync(tmpDir, { recursive: true });
-    await downloadThumbs(newFiles, tmpDir);
-    await compressImages(tmpDir);
-    await updateBucket({ ...oldManifest, ...newFiles }, tmpDir, bucket);
+    await downloadThumbs(manifest, outDir);
+    await compressImages(outDir);
   }
 };
