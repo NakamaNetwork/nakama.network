@@ -190,7 +190,7 @@ export const sniffImages = async ({ limit }: { limit?: number } = {}) => {
   }
   fs.mkdirSync(tmpDir, { recursive: true });
 
-  const assetDir = path.join(tmpDir, 'nakama.assets', 'assets', 'thumbs');
+  const assetDir = path.join(tmpDir, 'nakama.assets', 'assets', 'images', 'thumbs');
   await shallowCloneRepo(tmpDir);
 
   const oldManifest = await getOldManifest(assetDir);
