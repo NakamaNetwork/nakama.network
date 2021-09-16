@@ -8,7 +8,9 @@ import { buildStageTable } from './dynamo-tables/data/stage-table';
 import { buildUnitTable } from './dynamo-tables/data/unit-table';
 import { buildTeamTable } from './dynamo-tables/teams/team-table';
 import { buildRunScrapersEvent } from './events/run-scrapers-event';
+import { buildImageScraperLambda } from './scraper-lambdas/image-scraper-lambda';
 import { buildUnitScraperLambda } from './scraper-lambdas/unit-scraper-lambda';
+import { buildGitSecret } from './secrets/git-secret';
 
 export class NakamaInfrastructureStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -27,11 +29,15 @@ export class NakamaInfrastructureStack extends cdk.Stack {
     // -- -- Team Tables
     buildTeamTable(this);
 
+    // -- Secrets
+    const gitSecret = buildGitSecret(this);
+
     // -- Lambdas
     // -- -- Scrapers
     const unitScraper = buildUnitScraperLambda(this, unitTable);
+    const imageScraper = buildImageScraperLambda(this, gitSecret);
 
     // -- Events
-    buildRunScrapersEvent(this, unitScraper);
+    buildRunScrapersEvent(this, unitScraper, imageScraper);
   }
 }
