@@ -37,7 +37,7 @@
       "pin": false
     },
     {
-      "packagePatterns": ["rollup", "lerna", "babel", "webpack"],
+      "packagePatterns": ["rollup", "lerna", "babel", "webpack", "-loader"],
       "groupName": "Build Tooling",
       "enabled": true,
       "pin": false
