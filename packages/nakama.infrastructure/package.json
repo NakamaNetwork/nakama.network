@@ -16,11 +16,11 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/node": "10.17.27",
+    "@types/node": "14.17.21",
     "aws-cdk": "1.126.0",
     "babel-jest": "^26.3.0",
-    "ts-node": "^8.1.0",
-    "typescript": "~3.9.7"
+    "ts-node": "10.2.1",
+    "typescript": "4.4.3"
   },
   "dependencies": {
     "@aws-cdk/aws-dynamodb": "1.126.0",
