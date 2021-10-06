@@ -18,7 +18,7 @@
     "@babel/preset-typescript": "7.15.0",
     "@types/node": "14.17.21",
     "aws-cdk": "1.126.0",
-    "babel-jest": "26.6.3",
+    "babel-jest": "27.2.4",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
   },
