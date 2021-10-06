@@ -16,7 +16,7 @@
     "typescript": "^4.0.3"
   },
   "dependencies": {
-    "aws-sdk": "2.828.0",
+    "aws-sdk": "2.1001.0",
     "type-shift": "^0.0.2"
   },
   "scripts": {
