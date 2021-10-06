@@ -14,11 +14,11 @@
     "type-check": "yarn tsc --noEmit"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.6",
+    "@babel/preset-typescript": "7.15.0",
     "@types/jest": "27.0.2",
-    "babel-jest": "^26.3.0",
+    "babel-jest": "26.6.3",
     "jest": "27.2.4"
   }
 }

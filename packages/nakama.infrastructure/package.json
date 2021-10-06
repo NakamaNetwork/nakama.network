@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.126.0",
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.6",
+    "@babel/preset-typescript": "7.15.0",
     "@types/node": "14.17.21",
     "aws-cdk": "1.126.0",
-    "babel-jest": "^26.3.0",
+    "babel-jest": "26.6.3",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
   },
