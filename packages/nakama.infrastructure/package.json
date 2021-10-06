@@ -35,6 +35,6 @@
     "nakama.backend": "1.0.0",
     "nakama.common": "1.0.0",
     "nakama.scrapers": "1.0.0",
-    "source-map-support": "^0.5.16"
+    "source-map-support": "0.5.19"
   }
 }

@@ -5704,7 +5704,7 @@ aws-cdk@1.126.0:
     yaml "1.10.2"
     yargs "^16.2.0"
 
-aws-sdk@^2.828.0:
+aws-sdk@2.828.0:
   version "2.828.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.828.0.tgz#6aa599c3582f219568f41fb287eb65753e4a9234"
   integrity sha512-JoDujGdncSIF9ka+XFZjop/7G+fNGucwPwYj7OHYMmFIOV5p7YmqomdbVmH/vIzd988YZz8oLOinWc4jM6vvhg==
@@ -15911,7 +15911,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@~0.5.12, source-map-support@~0.5.19:
+source-map-support@0.5.19, source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@~0.5.12, source-map-support@~0.5.19:
   version "0.5.19"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
   integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
