@@ -5,7 +5,7 @@ import path from 'path';
 
 export const buildImageScraperLambda = (stack: cdk.Stack, gitSecret: secret.ISecret) => {
   const func = new lambda.Function(stack, 'ImageScraper', {
-    runtime: lambda.Runtime.NODEJS_12_X,
+    runtime: lambda.Runtime.NODEJS_14_X,
     handler: 'index.sniffImages',
     code: new lambda.AssetCode(
       path.join(__dirname, '../../../../nakama.scrapers/dist/modules/units/image-scraper')

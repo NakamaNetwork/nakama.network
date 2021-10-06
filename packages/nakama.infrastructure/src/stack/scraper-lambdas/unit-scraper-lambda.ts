@@ -5,7 +5,7 @@ import path from 'path';
 
 export const buildUnitScraperLambda = (stack: cdk.Stack, unitTable: dynamodb.Table) => {
   const func = new lambda.Function(stack, 'UnitScraper', {
-    runtime: lambda.Runtime.NODEJS_12_X,
+    runtime: lambda.Runtime.NODEJS_14_X,
     handler: 'index.sniffUnits',
     code: new lambda.AssetCode(
       path.join(__dirname, '../../../../nakama.scrapers/dist/modules/units/unit-scraper')
