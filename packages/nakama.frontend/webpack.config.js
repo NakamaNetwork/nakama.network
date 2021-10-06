@@ -5,10 +5,7 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true,
-    lazy: false,
-    port: 9500,
-    publicPath: '/',
-    writeToDisk: true
+    port: 9500
   },
   entry: { index: './src/index.tsx' },
   mode: 'development',
@@ -24,7 +21,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },

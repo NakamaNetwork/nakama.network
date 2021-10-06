@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build-storybook": "build-storybook",
-    "build": "webpack -p",
+    "build": "webpack",
     "deploy": "echo 'Nothing to deploy.'",
     "start": "webpack-dev-server --open",
     "test": "jest --config=../../config/jest.config.js",
