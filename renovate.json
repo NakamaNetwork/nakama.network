@@ -1,5 +1,48 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "packagePatterns": ["*"],
+      "enabled": false
+    },
+    {
+      "packagePatterns": ["@aws-cdk", "aws-sdk", "source-map-support"],
+      "groupName": "AWS Dependencies",
+      "enabled": true
+    },
+    {
+      "packagePatterns": ["typescript", "ts-node", "node"],
+      "groupName": "Core",
+      "enabled": true,
+      "pin": false
+    },
+    {
+      "packagePatterns": ["react", "storybook"],
+      "groupName": "React",
+      "enabled": true,
+      "pin": false
+    },
+    {
+      "packagePatterns": ["eslint", "lerna", "prettier", "pre-commit"],
+      "groupName": "Linters",
+      "enabled": true,
+      "automerge": true,
+      "pin": false
+    },
+    {
+      "packagePatterns": ["jest", "codecov"],
+      "groupName": "Test Tooling",
+      "enabled": true,
+      "automerge": true,
+      "pin": false
+    },
+    {
+      "packagePatterns": ["rollup", "lerna", "babel", "webpack"],
+      "groupName": "Build Tooling",
+      "enabled": true,
+      "pin": false
+    }
+  ],
+  "schedule": ["after 5pm on monday"],
+  "timezone": "America/New_York"
 }
