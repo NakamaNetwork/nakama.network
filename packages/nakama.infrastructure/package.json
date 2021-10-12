@@ -12,7 +12,7 @@
     "type-check": "yarn tsc --noEmit"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.126.0",
+    "@aws-cdk/assert": "1.127.0",
     "@babel/core": "7.15.8",
     "@babel/preset-env": "7.15.8",
     "@babel/preset-typescript": "7.15.0",
@@ -23,15 +23,15 @@
     "typescript": "4.4.4"
   },
   "dependencies": {
-    "@aws-cdk/aws-dynamodb": "1.126.0",
-    "@aws-cdk/aws-events": "1.126.0",
-    "@aws-cdk/aws-events-targets": "1.126.0",
-    "@aws-cdk/aws-iam": "1.126.0",
-    "@aws-cdk/aws-kms": "1.126.0",
-    "@aws-cdk/aws-lambda": "1.126.0",
-    "@aws-cdk/aws-s3": "1.126.0",
-    "@aws-cdk/aws-secretsmanager": "1.126.0",
-    "@aws-cdk/core": "1.126.0",
+    "@aws-cdk/aws-dynamodb": "1.127.0",
+    "@aws-cdk/aws-events": "1.127.0",
+    "@aws-cdk/aws-events-targets": "1.127.0",
+    "@aws-cdk/aws-iam": "1.127.0",
+    "@aws-cdk/aws-kms": "1.127.0",
+    "@aws-cdk/aws-lambda": "1.127.0",
+    "@aws-cdk/aws-s3": "1.127.0",
+    "@aws-cdk/aws-secretsmanager": "1.127.0",
+    "@aws-cdk/core": "1.127.0",
     "nakama.backend": "1.0.0",
     "nakama.common": "1.0.0",
     "nakama.scrapers": "1.0.0",
