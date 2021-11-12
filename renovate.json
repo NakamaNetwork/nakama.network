@@ -44,5 +44,6 @@
     }
   ],
   "schedule": ["after 5pm on monday"],
+  "updateNotScheduled": false,
   "timezone": "America/New_York"
 }
