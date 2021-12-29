@@ -1,5 +1,5 @@
 export const isMultidimensionalArray = <T>(something: T[] | T[][]): something is T[][] => {
-  return Array.isArray(something) && Array.isArray(something[0]);
+  return Array.isArray(something) && something.some((element) => Array.isArray(element));
 };
 
 export function* bin<T>(items: T[], bucketSize = 10) {

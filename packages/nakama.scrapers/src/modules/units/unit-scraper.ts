@@ -40,7 +40,10 @@ const getClasses = (rawClasses: SniffedUnits['units'][number][2]): string[] | un
     if (Array.isArray(rawClasses)) {
       if (isMultidimensionalArray(rawClasses)) {
         return rawClasses.reduce((acc, cur) => {
-          acc.push(...cur);
+          const innerClasses = getClasses(cur);
+          if (innerClasses) {
+            acc.push(...innerClasses);
+          }
           return acc;
         }, [] as string[]);
       }
