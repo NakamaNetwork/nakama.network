@@ -6,7 +6,7 @@ jest.mock('../unit-scraper', () => ({
     .mockResolvedValue([{ id: 1 }, { id: 190 }, { id: 2399 }, { id: 3100 }, { id: 3200 }])
 }));
 
-xdescribe('imageScraper', () => {
+describe('imageScraper', () => {
   beforeAll(() => {
     jest.setTimeout(60000);
   });

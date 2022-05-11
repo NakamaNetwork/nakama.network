@@ -74,9 +74,9 @@ const getTimestamp = async (id: string, url: string) => {
   });
   const lastModified = headers.headers.get('last-modified');
   if (!lastModified) {
-    throw Error(`Error trying to get timestamp of ${id} at ${url}.`);
+    console.log(`Could not get real timestamp of ${id} at ${url}.`);
   }
-  return new Date(lastModified).getTime();
+  return new Date(lastModified || 0).getTime();
 };
 
 const getNewManifest = async (mappings: Record<string, string>) => {
