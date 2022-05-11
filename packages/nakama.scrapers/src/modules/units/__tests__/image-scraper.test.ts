@@ -12,6 +12,6 @@ xdescribe('imageScraper', () => {
   });
 
   it('does it', async () => {
-    await sniffImages();
+    await sniffImages({ local: true });
   });
 });

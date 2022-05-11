@@ -9,7 +9,7 @@ import { importFromRemote } from '../utils/import-helper';
 import { sniffUnits } from './unit-scraper';
 interface OptcDbUtils {
   Utils: {
-    getThumbnailUrl: (id: number) => string;
+    getThumbnailUrl: (id: number, relPathToUrl: string) => string;
   };
 }
 
@@ -58,9 +58,10 @@ const getImageMappings = async (limit?: number) => {
 
   console.log('Figuring out images.');
   const imageMappings = units.reduce((acc, { id }) => {
-    acc[id] = utils
-      .getThumbnailUrl(id)
-      .replace('../res', 'https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/res');
+    acc[id] = utils.getThumbnailUrl(
+      id,
+      'https://raw.githubusercontent.com/optc-db/optc-db.github.io/master'
+    );
     return acc;
   }, {} as Record<string, string>);
   return imageMappings;
@@ -181,7 +182,7 @@ const pushChanges = async (folder: string) => {
   execSync('git push', { cwd: folder });
 };
 
-export const sniffImages = async ({ limit }: { limit?: number } = {}) => {
+export const sniffImages = async ({ limit, local }: { limit?: number; local?: boolean } = {}) => {
   const tmpDir = path.join(os.tmpdir(), 'nakama-image-scraper');
   console.log('Working directory:', tmpDir);
   if (fs.existsSync(tmpDir)) {
@@ -191,9 +192,11 @@ export const sniffImages = async ({ limit }: { limit?: number } = {}) => {
   fs.mkdirSync(tmpDir, { recursive: true });
 
   const assetDir = path.join(tmpDir, 'nakama.assets', 'assets', 'images', 'thumbs');
-  await shallowCloneRepo(tmpDir);
+  if (!local) {
+    await shallowCloneRepo(tmpDir);
+  }
 
-  const oldManifest = await getOldManifest(assetDir);
+  const oldManifest = local ? {} : await getOldManifest(assetDir);
   const mappings = await getImageMappings(limit);
   const newManifest = await getNewManifest(mappings);
 
@@ -202,6 +205,8 @@ export const sniffImages = async ({ limit }: { limit?: number } = {}) => {
     await downloadThumbs(newFiles, mappings, assetDir);
     await compressImages(assetDir);
     await writeNewManifest(newManifest, assetDir);
-    await pushChanges(assetDir);
+    if (!local) {
+      await pushChanges(assetDir);
+    }
   }
 };
