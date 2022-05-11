@@ -19,8 +19,8 @@ export const importFromRemote = async <TResult>(url: string): Promise<TResult> =
   if (content.startsWith(FUNC_WRAPPER_START)) {
     content = content.substr(FUNC_WRAPPER_START.length);
   }
-  if (content.endsWith(FUNC_WRAPPER_END)) {
-    content = content.substr(0, content.length - FUNC_WRAPPER_END.length);
+  if (content.includes(FUNC_WRAPPER_END)) {
+    content = content.substr(0, content.lastIndexOf(FUNC_WRAPPER_END));
   }
   const tmpDir = os.tmpdir();
   const tmpFile = path.join(tmpDir, `${Math.random().toString(36)}.js`);
