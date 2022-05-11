@@ -72,6 +72,9 @@ const getTimestamp = async (id: string, url: string) => {
   const headers = await fetch(url, {
     method: 'HEAD'
   });
+  if (!headers.ok) {
+    throw new Error(`Could not get information of ${id} at ${url}.`);
+  }
   const lastModified = headers.headers.get('last-modified');
   if (!lastModified) {
     console.log(`Could not get real timestamp of ${id} at ${url}.`);
@@ -102,7 +105,7 @@ const getNewFiles = (newManifest: Record<string, number>, oldManifest: Record<st
   let staleFiles = 0;
   Object.entries(newManifest).forEach(([id, current]) => {
     const existing = oldManifest[id];
-    if (!existing || existing < current) {
+    if (existing == undefined || existing < current) {
       newFiles.push(id);
     } else {
       staleFiles++;
