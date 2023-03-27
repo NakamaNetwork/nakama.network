@@ -2,15 +2,12 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assert@1.129.0":
-  version "1.129.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.129.0.tgz#1e18521f8201cc8e765d3a2d6dac52a452477c17"
-  integrity sha512-d3IPScg+MnXfiDHF44mkWj/hWt0m4WUbcQrUKi5SBFKcnKkrZk2QiLuowOtwre/zhcAX0bCQYfuZI+yS0yVNHQ==
+"@aws-cdk/assert@2.68.0":
+  version "2.68.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-2.68.0.tgz#d83b44ba278d3e3a32c13f372c697f26c6061b64"
+  integrity sha512-bEztvoYdVp17I/ClYRGZa4wlEP/qNNq4Q+Z7EKwRL0cLDmvq4EI1m1N8LhUPAH7B6YXp5d1164gC6Nr0lV8bbA==
   dependencies:
-    "@aws-cdk/cloudformation-diff" "1.129.0"
-    "@aws-cdk/core" "1.129.0"
-    "@aws-cdk/cx-api" "1.129.0"
-    constructs "^3.3.69"
+    "@aws-cdk/cloudformation-diff" "2.68.0"
 
 "@aws-cdk/assets@1.129.0":
   version "1.129.0"
@@ -643,10 +640,10 @@
   dependencies:
     md5 "^2.3.0"
 
-"@aws-cdk/cfnspec@1.129.0":
-  version "1.129.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.129.0.tgz#11c9544e1faeb6241c4ebed3f5734f5bbf80a24c"
-  integrity sha512-0WsNvuF0Lem/TpcjxvVN4VrZpvdXPJQVI38qVvm6+tiKj2h6qaOaY0luxZntccTbX43S7wo54tHy5qOl8lDBMw==
+"@aws-cdk/cfnspec@2.68.0":
+  version "2.68.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-2.68.0.tgz#e678c62d92ca76f8513a23c3c78f00ae49a7ab2e"
+  integrity sha512-g062ljKOvMaeEgp2GR2ewoF3BzeGYpu+AA7UvN/SN+2S0detSwU+qHlxSFeTe0DLyCFaMttNEh81VmYCfiHtpg==
   dependencies:
     fs-extra "^9.1.0"
     md5 "^2.3.0"
@@ -680,18 +677,17 @@
     string-width "^4.2.3"
     table "^6.7.1"
 
-"@aws-cdk/cloudformation-diff@1.129.0":
-  version "1.129.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.129.0.tgz#f9e94f27ad9db07fbfdcd00a42076bb591fb69dc"
-  integrity sha512-1Wbp03YLXnkFyVafjhwYWUJa+qlkdBuzzKJKbTz6gjApl4+0uUPI2m0IeqgOVEmqyAuSErvcTPWSI8ZmjzjQ5g==
+"@aws-cdk/cloudformation-diff@2.68.0":
+  version "2.68.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-2.68.0.tgz#e5c69c9419472e3dd56bde418b3fabbca85d4005"
+  integrity sha512-JnX0sygxNHWU3aKdzSus25B1TuKYWDwnNL2tw3svZvfHcw3Nwz857JTOn/yNOJxT7cZbCbOqNPrOT6Xv+LrxTQ==
   dependencies:
-    "@aws-cdk/cfnspec" "1.129.0"
-    "@types/node" "^10.17.60"
-    colors "^1.4.0"
-    diff "^5.0.0"
+    "@aws-cdk/cfnspec" "2.68.0"
+    chalk "^4"
+    diff "^5.1.0"
     fast-deep-equal "^3.1.3"
     string-width "^4.2.3"
-    table "^6.7.2"
+    table "^6.8.1"
 
 "@aws-cdk/core@1.129.0":
   version "1.129.0"
@@ -6882,7 +6878,7 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
+chalk@^4, chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -8142,6 +8138,11 @@ diff@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-5.0.0.tgz#7ed6ad76d859d030787ec35855f5b1daf31d852b"
   integrity sha512-/VTCrvm5Z0JGty/BWHljh+BAiw3IK+2j87NGMu8Nwc/f48WoDAC395uomO9ZD117ZOBaHmkX1oyLvkVM/aIT3w==
+
+diff@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-5.1.0.tgz#bc52d298c5ea8df9194800224445ed43ffc87e40"
+  integrity sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==
 
 diffie-hellman@^5.0.0:
   version "5.0.3"
@@ -16923,13 +16924,24 @@ symbol.prototype.description@^1.0.0:
     es-abstract "^1.17.0-next.1"
     has-symbols "^1.0.1"
 
-table@^6.0.9, table@^6.7.1, table@^6.7.2:
+table@^6.0.9, table@^6.7.1:
   version "6.7.2"
   resolved "https://registry.yarnpkg.com/table/-/table-6.7.2.tgz#a8d39b9f5966693ca8b0feba270a78722cbaf3b0"
   integrity sha512-UFZK67uvyNivLeQbVtkiUs8Uuuxv24aSL4/Vil2PJVtMgU8Lx0CYkP12uCGa3kjyQzOSgV1+z9Wkb82fCGsO0g==
   dependencies:
     ajv "^8.0.1"
     lodash.clonedeep "^4.5.0"
+    lodash.truncate "^4.4.2"
+    slice-ansi "^4.0.0"
+    string-width "^4.2.3"
+    strip-ansi "^6.0.1"
+
+table@^6.8.1:
+  version "6.8.1"
+  resolved "https://registry.yarnpkg.com/table/-/table-6.8.1.tgz#ea2b71359fe03b017a5fbc296204471158080bdf"
+  integrity sha512-Y4X9zqrCftUhMeH2EptSSERdVKt/nEdijTOacGD/97EKjhQ/Qs8RTlEGABSJNNN8lac9kheH+af7yAkEWlgneA==
+  dependencies:
+    ajv "^8.0.1"
     lodash.truncate "^4.4.2"
     slice-ansi "^4.0.0"
     string-width "^4.2.3"
