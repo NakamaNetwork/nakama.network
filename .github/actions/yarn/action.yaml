@@ -1,0 +1,10 @@
+name: Yarn Install
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: ".nvmrc"
+
+    - run: yarn install
+      shell: bash
