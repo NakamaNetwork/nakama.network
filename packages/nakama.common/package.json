@@ -1,4 +1,7 @@
 {
   "name": "nakama.common",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "type-shift": "^0.2.2"
+  }
 }

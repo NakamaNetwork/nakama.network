@@ -3081,6 +3081,8 @@ __metadata:
 "nakama.common@workspace:packages/nakama.common":
   version: 0.0.0-use.local
   resolution: "nakama.common@workspace:packages/nakama.common"
+  dependencies:
+    type-shift: ^0.2.2
   languageName: unknown
   linkType: soft
 
@@ -3651,6 +3653,13 @@ __metadata:
   version: 0.20.2
   resolution: "type-fest@npm:0.20.2"
   checksum: 4fb3272df21ad1c552486f8a2f8e115c09a521ad7a8db3d56d53718d0c907b62c6e9141ba5f584af3f6830d0872c521357e512381f24f7c44acae583ad517d73
+  languageName: node
+  linkType: hard
+
+"type-shift@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "type-shift@npm:0.2.2"
+  checksum: 311b384396dbf929e7ff0a1b6afe5fffca295c7255fbc2f7db91d1695c30b3beb30852bfe2d7ed6431a59a62c104d116065644760a1792240a31ccf041980d0e
   languageName: node
   linkType: hard
 
