@@ -1,4 +1,15 @@
 {
   "name": "nakama.lambdas",
-  "private": true
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./src",
+    "test": "jest",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/jest": "*",
+    "eslint": "*",
+    "jest": "*",
+    "typescript": "*"
+  }
 }

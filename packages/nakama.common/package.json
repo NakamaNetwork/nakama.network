@@ -3,5 +3,16 @@
   "private": true,
   "dependencies": {
     "type-shift": "^0.2.2"
+  },
+  "scripts": {
+    "lint": "eslint ./src",
+    "test": "jest",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/jest": "*",
+    "eslint": "*",
+    "jest": "*",
+    "typescript": "*"
   }
 }
